@@ -1,8 +1,54 @@
-<button class="btn btn-primary"
-        (click)="onAdd()">Add Post</button>
-        
-<input  #inp
-placeholder="write some words ..."
-type="text"
-class="form-control"
-(change)="onKey($event)">
+<br>
+<div class="container">
+        <div class="row">
+          <div >
+                  <!--  #postForm - getting access to form element itself"
+                  ngForm - getting access to form js object angular created behind the scenes. -->
+            <form #f="ngForm" (ngSubmit)="onCreatePost(f)">
+                <!-- <div class="form-group">
+                <label for="title">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  ngModel
+                  name="title"
+                />
+              </div> -->
+              <div class="form-group">
+                <label for="content">Content</label>
+                <textarea
+                  class="form-control"
+                  id="content"
+                  ngModel
+                  name="content"
+                  style="width: 350%;"
+                ></textarea>
+              </div>
+              <button
+                class="btn btn-primary"
+                type="submit"
+              >
+                Post
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- <div class="row">
+          <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <button class="btn btn-primary" (click)="onFetchPosts()">
+              Fetch Posts
+            </button>
+            |
+            <button
+              class="btn btn-danger"
+              [disabled]="loadedPosts.length < 1"
+              (click)="onClearPosts()"
+            >
+              Clear Posts
+            </button>
+          </div>
+        </div> -->
+      </div>
+      

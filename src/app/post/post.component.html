@@ -1,13 +1,71 @@
 <br>
-<div class="card" style="width: 18rem;">
+<div class="card border-dark mb-3" style="width: 45rem;">
       <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
     <div class="card-body">
-      <h5 class="card-title">Post ID: {{ post_id }} </h5>
-      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-      <button class="btn btn-primary" 
-      [disabled]="!editPost"
-      (click) = "onLike()" >Like</button>
-      <p> {{num_of_likes}} likes</p>
-      <p>rank : {{ post_rank}} </p>
+      <div class="card-header">{{ element.date}} </div>
+
+      <div>
+        <p><span><p #pid style="display:none">{{ element.id }}</p></span></p>
+      </div>  
+    
+
+<!--     
+      <div class="card-subtitle mb-2 text-muted">
+        <mat-icon>thumb_up</mat-icon> <span class="aligned-with-icon">  {{ element.likes }}</span> 
+      </div>
+     -->
+
+      <p [hidden] ="editMode === true">{{ element.content}} </p>
+      <div>
+        <input 
+        [hidden] ="editMode === false"
+        type="text" 
+        class="form-control"
+        #NewPostContent>
+      </div>
+      <hr>
+
+
+  
+
+      <div class = "buttons">
+
+        <button class="btn btn-light btn-sm border border-dark"
+        
+        (click) = "onLike()"
+        id = likeButton 
+        ><mat-icon >thumb_up</mat-icon> {{ element.likes }} </button>
+        
+        <button class="btn btn-light btn-sm border border-dark"
+        style="margin-left: 5px;"
+        (click) = "onLike()"
+        id = RankButton 
+        ><mat-icon >trending_up</mat-icon> {{ element.rank }} </button>
+      
+
+        <button
+          class="btn btn-danger" 
+          id = deleteButton
+          (click) = "onDelete(pid)" >delete</button> 
+      
+        <button
+          class="btn btn-secondary " 
+          id = editButton
+          [disabled] = "editMode"
+          (click) = "onEditStarts()">Edit</button>
+
+          <button class="btn btn-primary" 
+          id = editButton
+          (click) = "onEditFinished(pid,NewPostContent)"
+          [hidden] ="editMode === false">Finish</button>
+          <br>
+
+        </div>
+     
+
     </div>
+
+
+
+
   </div>

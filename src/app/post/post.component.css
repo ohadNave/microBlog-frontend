@@ -1,0 +1,35 @@
+#deleteButton{
+    position:absolute;
+    margin-bottom: 2.5%;
+    margin-right: 5%;
+    right:0;
+    bottom:0;
+}
+
+/* #likeButton{
+    height: 10%;
+    width: 5%;
+
+} */
+
+#editButton{
+    position:absolute;
+    margin-bottom: 2.5%;
+    margin-right: 20%;
+    right:0;
+    bottom:0;
+}
+
+
+
+/* #likeButton{
+    color:#808080;
+    font-size: 150%;
+} */
+
+.aligned-with-icon{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 5px; /* optional */
+    font-size: 100%;
+}
